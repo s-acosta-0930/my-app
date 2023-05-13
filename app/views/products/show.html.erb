@@ -1,0 +1,206 @@
+<div>
+  <div>
+    <h1>
+      Product #<%= @the_product.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/products">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_product/<%= @the_product.id %>">
+          Delete product
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Upc
+      </dt>
+      <dd>
+        <%= @the_product.upc_id %>
+      </dd>
+
+      <dt>
+        Item description
+      </dt>
+      <dd>
+        <%= @the_product.item_description %>
+      </dd>
+
+      <dt>
+        Image url
+      </dt>
+      <dd>
+        <%= @the_product.image_url %>
+      </dd>
+
+      <dt>
+        Item name
+      </dt>
+      <dd>
+        <%= @the_product.item_name %>
+      </dd>
+
+      <dt>
+        Price
+      </dt>
+      <dd>
+        <%= @the_product.price %>
+      </dd>
+
+      <dt>
+        Brand
+      </dt>
+      <dd>
+        <%= @the_product.brand %>
+      </dd>
+
+      <dt>
+        Color
+      </dt>
+      <dd>
+        <%= @the_product.color %>
+      </dd>
+
+      <dt>
+        Size
+      </dt>
+      <dd>
+        <%= @the_product.size %>
+      </dd>
+
+      <dt>
+        Dimensions
+      </dt>
+      <dd>
+        <%= @the_product.dimensions %>
+      </dd>
+
+      <dt>
+        Reviews count
+      </dt>
+      <dd>
+        <%= @the_product.reviews_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_product.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_product.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit product
+    </h2>
+
+    <form action="/modify_product/<%= @the_product.id %>"  method="post" >
+      <div>
+        <label for="upc_id_box">
+          Upc
+        </label>
+
+        <input type="text" id="upc_id_box" name="query_upc_id" value="<%= @the_product.upc_id %>">
+      </div>
+
+      <div>
+        <label for="item_description_box">
+          Item description
+        </label>
+
+        <input type="text" id="item_description_box" name="query_item_description" value="<%= @the_product.item_description %>">
+      </div>
+
+      <div>
+        <label for="image_url_box">
+          Image url
+        </label>
+
+        <input type="text" id="image_url_box" name="query_image_url" value="<%= @the_product.image_url %>">
+      </div>
+
+      <div>
+        <label for="item_name_box">
+          Item name
+        </label>
+
+        <input type="text" id="item_name_box" name="query_item_name" value="<%= @the_product.item_name %>">
+      </div>
+
+      <div>
+        <label for="price_box">
+          Price
+        </label>
+
+        <input type="text" id="price_box" name="query_price" value="<%= @the_product.price %>">
+      </div>
+
+      <div>
+        <label for="brand_box">
+          Brand
+        </label>
+
+        <input type="text" id="brand_box" name="query_brand" value="<%= @the_product.brand %>">
+      </div>
+
+      <div>
+        <label for="color_box">
+          Color
+        </label>
+
+        <input type="text" id="color_box" name="query_color" value="<%= @the_product.color %>">
+      </div>
+
+      <div>
+        <label for="size_box">
+          Size
+        </label>
+
+        <input type="text" id="size_box" name="query_size" value="<%= @the_product.size %>">
+      </div>
+
+      <div>
+        <label for="dimensions_box">
+          Dimensions
+        </label>
+
+        <input type="text" id="dimensions_box" name="query_dimensions" value="<%= @the_product.dimensions %>">
+      </div>
+
+      <div>
+        <label for="reviews_count_box">
+          Reviews count
+        </label>
+
+        <input type="text" id="reviews_count_box" name="query_reviews_count" value="<%= @the_product.reviews_count %>">
+      </div>
+
+      <button>
+        Update product
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

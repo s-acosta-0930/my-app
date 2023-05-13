@@ -1,0 +1,191 @@
+<div>
+  <div>
+    <h1>
+      Offspring #<%= @the_offspring.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/offsprings">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_offspring/<%= @the_offspring.id %>">
+          Delete offspring
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Parent
+      </dt>
+      <dd>
+        <%= @the_offspring.parent_id %>
+      </dd>
+
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_offspring.name %>
+      </dd>
+
+      <dt>
+        Dob
+      </dt>
+      <dd>
+        <%= @the_offspring.dob %>
+      </dd>
+
+      <dt>
+        Height cm
+      </dt>
+      <dd>
+        <%= @the_offspring.height_cm %>
+      </dd>
+
+      <dt>
+        Weight lbs
+      </dt>
+      <dd>
+        <%= @the_offspring.weight_lbs %>
+      </dd>
+
+      <dt>
+        Weight oz
+      </dt>
+      <dd>
+        <%= @the_offspring.weight_oz %>
+      </dd>
+
+      <dt>
+        Gender
+      </dt>
+      <dd>
+        <%= @the_offspring.gender %>
+      </dd>
+
+      <dt>
+        Hair color
+      </dt>
+      <dd>
+        <%= @the_offspring.hair_color_id %>
+      </dd>
+
+      <dt>
+        Eye color
+      </dt>
+      <dd>
+        <%= @the_offspring.eye_color_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_offspring.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_offspring.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit offspring
+    </h2>
+
+    <form action="/modify_offspring/<%= @the_offspring.id %>"  method="post" >
+      <div>
+        <label for="parent_id_box">
+          Parent
+        </label>
+
+        <input type="text" id="parent_id_box" name="query_parent_id" value="<%= @the_offspring.parent_id %>">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_offspring.name %>">
+      </div>
+
+      <div>
+        <label for="dob_box">
+          Dob
+        </label>
+
+        <input type="date" id="dob_box" name="query_dob" value="<%= @the_offspring.dob %>">
+      </div>
+
+      <div>
+        <label for="height_cm_box">
+          Height cm
+        </label>
+
+        <input type="text" id="height_cm_box" name="query_height_cm" value="<%= @the_offspring.height_cm %>">
+      </div>
+
+      <div>
+        <label for="weight_lbs_box">
+          Weight lbs
+        </label>
+
+        <input type="text" id="weight_lbs_box" name="query_weight_lbs" value="<%= @the_offspring.weight_lbs %>">
+      </div>
+
+      <div>
+        <label for="weight_oz_box">
+          Weight oz
+        </label>
+
+        <input type="text" id="weight_oz_box" name="query_weight_oz" value="<%= @the_offspring.weight_oz %>">
+      </div>
+
+      <div>
+        <label for="gender_box">
+          Gender
+        </label>
+
+        <input type="text" id="gender_box" name="query_gender" value="<%= @the_offspring.gender %>">
+      </div>
+
+      <div>
+        <label for="hair_color_id_box">
+          Hair color
+        </label>
+
+        <input type="text" id="hair_color_id_box" name="query_hair_color_id" value="<%= @the_offspring.hair_color_id %>">
+      </div>
+
+      <div>
+        <label for="eye_color_id_box">
+          Eye color
+        </label>
+
+        <input type="text" id="eye_color_id_box" name="query_eye_color_id" value="<%= @the_offspring.eye_color_id %>">
+      </div>
+
+      <button>
+        Update offspring
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

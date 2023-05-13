@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all colors
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new color
+    </h2>
+
+    <form action="/insert_color" method="post">
+      <div>
+        <label for="color_name_box">
+          Color name
+        </label>
+
+        <input type="text" id="color_name_box" name="query_color_name">
+      </div>
+
+      <div>
+        <label for="image_url_box">
+          Image url
+        </label>
+
+        <input type="text" id="image_url_box" name="query_image_url">
+      </div>
+
+      <button>
+        Create color
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Color name
+        </th>
+
+        <th>
+          Image url
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_colors.each do |a_color| %>
+      <tr>
+        <td>
+          <%= a_color.id %>
+        </td>
+
+        <td>
+          <%= a_color.color_name %>
+        </td>
+
+        <td>
+          <%= a_color.image_url %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_color.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_color.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/colors/<%= a_color.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

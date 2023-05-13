@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Color #<%= @the_color.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/colors">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_color/<%= @the_color.id %>">
+          Delete color
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Color name
+      </dt>
+      <dd>
+        <%= @the_color.color_name %>
+      </dd>
+
+      <dt>
+        Image url
+      </dt>
+      <dd>
+        <%= @the_color.image_url %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_color.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_color.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit color
+    </h2>
+
+    <form action="/modify_color/<%= @the_color.id %>"  method="post" >
+      <div>
+        <label for="color_name_box">
+          Color name
+        </label>
+
+        <input type="text" id="color_name_box" name="query_color_name" value="<%= @the_color.color_name %>">
+      </div>
+
+      <div>
+        <label for="image_url_box">
+          Image url
+        </label>
+
+        <input type="text" id="image_url_box" name="query_image_url" value="<%= @the_color.image_url %>">
+      </div>
+
+      <button>
+        Update color
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

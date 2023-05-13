@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Message thread #<%= @the_message_thread.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/message_threads">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_message_thread/<%= @the_message_thread.id %>">
+          Delete message thread
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @the_message_thread.title %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_message_thread.user_id %>
+      </dd>
+
+      <dt>
+        Messages count
+      </dt>
+      <dd>
+        <%= @the_message_thread.messages_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_message_thread.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_message_thread.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit message thread
+    </h2>
+
+    <form action="/modify_message_thread/<%= @the_message_thread.id %>"  method="post" >
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title" value="<%= @the_message_thread.title %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_message_thread.user_id %>">
+      </div>
+
+      <div>
+        <label for="messages_count_box">
+          Messages count
+        </label>
+
+        <input type="text" id="messages_count_box" name="query_messages_count" value="<%= @the_message_thread.messages_count %>">
+      </div>
+
+      <button>
+        Update message thread
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

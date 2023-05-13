@@ -1,0 +1,230 @@
+<div>
+  <div>
+    <h1>
+      List of all products
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new product
+    </h2>
+
+    <form action="/insert_product" method="post">
+      <div>
+        <label for="upc_id_box">
+          Upc
+        </label>
+
+        <input type="text" id="upc_id_box" name="query_upc_id">
+      </div>
+
+      <div>
+        <label for="item_description_box">
+          Item description
+        </label>
+
+        <input type="text" id="item_description_box" name="query_item_description">
+      </div>
+
+      <div>
+        <label for="image_url_box">
+          Image url
+        </label>
+
+        <input type="text" id="image_url_box" name="query_image_url">
+      </div>
+
+      <div>
+        <label for="item_name_box">
+          Item name
+        </label>
+
+        <input type="text" id="item_name_box" name="query_item_name">
+      </div>
+
+      <div>
+        <label for="price_box">
+          Price
+        </label>
+
+        <input type="text" id="price_box" name="query_price">
+      </div>
+
+      <div>
+        <label for="brand_box">
+          Brand
+        </label>
+
+        <input type="text" id="brand_box" name="query_brand">
+      </div>
+
+      <div>
+        <label for="color_box">
+          Color
+        </label>
+
+        <input type="text" id="color_box" name="query_color">
+      </div>
+
+      <div>
+        <label for="size_box">
+          Size
+        </label>
+
+        <input type="text" id="size_box" name="query_size">
+      </div>
+
+      <div>
+        <label for="dimensions_box">
+          Dimensions
+        </label>
+
+        <input type="text" id="dimensions_box" name="query_dimensions">
+      </div>
+
+      <div>
+        <label for="reviews_count_box">
+          Reviews count
+        </label>
+
+        <input type="text" id="reviews_count_box" name="query_reviews_count">
+      </div>
+
+      <button>
+        Create product
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Upc
+        </th>
+
+        <th>
+          Item description
+        </th>
+
+        <th>
+          Image url
+        </th>
+
+        <th>
+          Item name
+        </th>
+
+        <th>
+          Price
+        </th>
+
+        <th>
+          Brand
+        </th>
+
+        <th>
+          Color
+        </th>
+
+        <th>
+          Size
+        </th>
+
+        <th>
+          Dimensions
+        </th>
+
+        <th>
+          Reviews count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_products.each do |a_product| %>
+      <tr>
+        <td>
+          <%= a_product.id %>
+        </td>
+
+        <td>
+          <%= a_product.upc_id %>
+        </td>
+
+        <td>
+          <%= a_product.item_description %>
+        </td>
+
+        <td>
+          <%= a_product.image_url %>
+        </td>
+
+        <td>
+          <%= a_product.item_name %>
+        </td>
+
+        <td>
+          <%= a_product.price %>
+        </td>
+
+        <td>
+          <%= a_product.brand %>
+        </td>
+
+        <td>
+          <%= a_product.color %>
+        </td>
+
+        <td>
+          <%= a_product.size %>
+        </td>
+
+        <td>
+          <%= a_product.dimensions %>
+        </td>
+
+        <td>
+          <%= a_product.reviews_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_product.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_product.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/products/<%= a_product.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

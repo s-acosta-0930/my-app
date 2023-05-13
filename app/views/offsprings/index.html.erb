@@ -1,0 +1,214 @@
+<div>
+  <div>
+    <h1>
+      List of all offsprings
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new offspring
+    </h2>
+
+    <form action="/insert_offspring" method="post">
+      <div>
+        <label for="parent_id_box">
+          Parent
+        </label>
+
+        <input type="text" id="parent_id_box" name="query_parent_id">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="dob_box">
+          Dob
+        </label>
+
+        <input type="date" id="dob_box" name="query_dob">
+      </div>
+
+      <div>
+        <label for="height_cm_box">
+          Height cm
+        </label>
+
+        <input type="text" id="height_cm_box" name="query_height_cm">
+      </div>
+
+      <div>
+        <label for="weight_lbs_box">
+          Weight lbs
+        </label>
+
+        <input type="text" id="weight_lbs_box" name="query_weight_lbs">
+      </div>
+
+      <div>
+        <label for="weight_oz_box">
+          Weight oz
+        </label>
+
+        <input type="text" id="weight_oz_box" name="query_weight_oz">
+      </div>
+
+      <div>
+        <label for="gender_box">
+          Gender
+        </label>
+
+        <input type="text" id="gender_box" name="query_gender">
+      </div>
+
+      <div>
+        <label for="hair_color_id_box">
+          Hair color
+        </label>
+
+        <input type="text" id="hair_color_id_box" name="query_hair_color_id">
+      </div>
+
+      <div>
+        <label for="eye_color_id_box">
+          Eye color
+        </label>
+
+        <input type="text" id="eye_color_id_box" name="query_eye_color_id">
+      </div>
+
+      <button>
+        Create offspring
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Parent
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Dob
+        </th>
+
+        <th>
+          Height cm
+        </th>
+
+        <th>
+          Weight lbs
+        </th>
+
+        <th>
+          Weight oz
+        </th>
+
+        <th>
+          Gender
+        </th>
+
+        <th>
+          Hair color
+        </th>
+
+        <th>
+          Eye color
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_offsprings.each do |an_offspring| %>
+      <tr>
+        <td>
+          <%= an_offspring.id %>
+        </td>
+
+        <td>
+          <%= an_offspring.parent_id %>
+        </td>
+
+        <td>
+          <%= an_offspring.name %>
+        </td>
+
+        <td>
+          <%= an_offspring.dob %>
+        </td>
+
+        <td>
+          <%= an_offspring.height_cm %>
+        </td>
+
+        <td>
+          <%= an_offspring.weight_lbs %>
+        </td>
+
+        <td>
+          <%= an_offspring.weight_oz %>
+        </td>
+
+        <td>
+          <%= an_offspring.gender %>
+        </td>
+
+        <td>
+          <%= an_offspring.hair_color_id %>
+        </td>
+
+        <td>
+          <%= an_offspring.eye_color_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_offspring.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_offspring.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/offsprings/<%= an_offspring.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

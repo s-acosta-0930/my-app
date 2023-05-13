@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all faqs
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new faq
+    </h2>
+
+    <form action="/insert_faq" method="post">
+      <div>
+        <label for="product_id_box">
+          Product
+        </label>
+
+        <input type="text" id="product_id_box" name="query_product_id">
+      </div>
+
+      <div>
+        <label for="question_description_box">
+          Question description
+        </label>
+
+        <input type="text" id="question_description_box" name="query_question_description">
+      </div>
+
+      <div>
+        <label for="answer_description_box">
+          Answer description
+        </label>
+
+        <input type="text" id="answer_description_box" name="query_answer_description">
+      </div>
+
+      <button>
+        Create faq
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Product
+        </th>
+
+        <th>
+          Question description
+        </th>
+
+        <th>
+          Answer description
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_faqs.each do |a_faq| %>
+      <tr>
+        <td>
+          <%= a_faq.id %>
+        </td>
+
+        <td>
+          <%= a_faq.product_id %>
+        </td>
+
+        <td>
+          <%= a_faq.question_description %>
+        </td>
+
+        <td>
+          <%= a_faq.answer_description %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_faq.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_faq.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/faqs/<%= a_faq.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

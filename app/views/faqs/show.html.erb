@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Faq #<%= @the_faq.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/faqs">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_faq/<%= @the_faq.id %>">
+          Delete faq
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Product
+      </dt>
+      <dd>
+        <%= @the_faq.product_id %>
+      </dd>
+
+      <dt>
+        Question description
+      </dt>
+      <dd>
+        <%= @the_faq.question_description %>
+      </dd>
+
+      <dt>
+        Answer description
+      </dt>
+      <dd>
+        <%= @the_faq.answer_description %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_faq.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_faq.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit faq
+    </h2>
+
+    <form action="/modify_faq/<%= @the_faq.id %>"  method="post" >
+      <div>
+        <label for="product_id_box">
+          Product
+        </label>
+
+        <input type="text" id="product_id_box" name="query_product_id" value="<%= @the_faq.product_id %>">
+      </div>
+
+      <div>
+        <label for="question_description_box">
+          Question description
+        </label>
+
+        <input type="text" id="question_description_box" name="query_question_description" value="<%= @the_faq.question_description %>">
+      </div>
+
+      <div>
+        <label for="answer_description_box">
+          Answer description
+        </label>
+
+        <input type="text" id="answer_description_box" name="query_answer_description" value="<%= @the_faq.answer_description %>">
+      </div>
+
+      <button>
+        Update faq
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
